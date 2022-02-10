@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const EmployeeRoute = require('./route/EmployeeRoute')
+const ProjectRoute = require('./route/ProjectRoute')
 var bodyParser = require('body-parser');
 
 const dbURI = 'mongodb://localhost:27017/AquaSoft'
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/employee', EmployeeRoute)
+app.use('/project', ProjectRoute)
 
 app.get('/', function(req, res){
     res.send('Hello World');

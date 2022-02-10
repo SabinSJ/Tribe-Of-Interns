@@ -1,5 +1,4 @@
 const EmployeeEntity = require('../model/EmployeeEntity')
-const { ObjectId } = require('bson')
 
 module.exports = {
 
@@ -17,6 +16,30 @@ module.exports = {
         }).catch((err) => {
             alert(err)
         })
+    },
+
+    getEmployeesAndTheProjects: (req, res) => {
+
+        EmployeeEntity.aggregate([
+            {
+                $match: {
+                    Name: req.params.name
+                }
+            },
+            {
+                $lookup: {
+                    from: "projects",
+                    localField: "project_id",
+                    foreignField: "_id",
+                    as: "employees_project"
+                }
+            }
+        ]).then((result) => {
+            res.send(result)
+        }).catch((err) => {
+            alert(err)
+        })
+
     },
 
     insertNewEmployee : async (req, res) => {

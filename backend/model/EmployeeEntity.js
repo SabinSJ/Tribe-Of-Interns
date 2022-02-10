@@ -8,6 +8,7 @@ const EmployeeSchema = new mongoose.Schema({
     Hire_date: Date,
     Salary: Number,
     Job_Title: String,
+    project_id : ObjectId
 })
 
 EmployeeSchema.set('versionKey', false)
