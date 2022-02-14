@@ -5,7 +5,7 @@ const ProjectSchema = new mongoose.Schema({
     Start_date: Date,
     Planned_end_date: Date,
     Description: String,
-    Project_code: String,
+    Project_code: String
 })
 
 ProjectSchema.set('versionKey', false)

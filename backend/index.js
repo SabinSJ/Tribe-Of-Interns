@@ -3,6 +3,8 @@ const mongoose = require('mongoose')
 const app = express()
 const EmployeeRoute = require('./route/EmployeeRoute')
 const ProjectRoute = require('./route/ProjectRoute')
+const cors = require('cors')
+
 var bodyParser = require('body-parser');
 
 const dbURI = 'mongodb://localhost:27017/AquaSoft'
@@ -24,7 +26,14 @@ db.once("open", function () {
 })
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors())
+
+// app.get('/', cors(), (req, res) => {
+//   res.json({
+//       message: 'Hello World'
+//   });
+// });
 
 app.use('/employee', EmployeeRoute)
 app.use('/project', ProjectRoute)

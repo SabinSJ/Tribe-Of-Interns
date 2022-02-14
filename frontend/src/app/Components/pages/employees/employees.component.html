@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" id="addEmployee">Add Employee</button>
+<button type="button" class="btn btn-primary" id="addEmployee" (click)="addEmployee()">Add Employee</button>
 
 <table class="table table-hover table-dark">
     <thead>
@@ -19,8 +19,8 @@
         </td>
 
         <td scope="row">
-            <button type="button" class="btn btn-warning" id="updateEmployee">Update</button>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-warning" (click)="updateEmployee(row._id)" id="updateEmployee">Update</button>
+            <button type="button" class="btn btn-danger" (click)="deleteEmployee(row._id)">Delete</button>
         </td>
       </tr>
     </tbody>
