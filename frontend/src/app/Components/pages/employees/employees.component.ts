@@ -34,9 +34,9 @@ export class EmployeesComponent implements OnInit {
     modalRef.componentInstance.employeeToUpdate = employee
   }
 
-  deleteEmployee(element : any){
-    console.log('remove employee from id: ' + element)
-    this.http.delete<any>(`http://localhost:3000/employee/delete/${element}`).subscribe( () => {
+  deleteEmployee(id : any){
+    console.log('remove employee from id: ' + id)
+    this.http.delete<any>(`http://localhost:3000/employee/delete/${id}`).subscribe( () => {
       alert("Employee deleted")
       window.location.reload()
     })

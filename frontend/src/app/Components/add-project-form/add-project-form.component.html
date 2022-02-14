@@ -1,0 +1,37 @@
+<div class="form-container">
+    <form>
+        <label class="label"><h2>Add new employee</h2></label>
+
+        <div class="form-group row d-flex justify-content-center">
+            <label class="label-product-name">Project name</label>
+            <input type="text" class="form-control" name="Name" [(ngModel)]="Project_name" placeholder="Project name">
+            <br/>
+        </div>
+
+        <div class="form-group row d-flex justify-content-center">
+            <label class="label-product-name">Start date</label>
+            <input type="text" class="form-control" name="Address" [(ngModel)]="Start_date" placeholder="Start date">
+            <br/>
+        </div>
+
+        <div class="form-group row d-flex justify-content-center">
+            <label class="label-product-name">Planned end date</label>
+            <input type="text" class="form-control" name="Email" [(ngModel)]="Planned_end_date" placeholder="Planned end date">
+            <br/>
+        </div>
+
+        <div class="form-group row d-flex justify-content-center">
+            <label class="label-product-name">Description</label>
+            <input type="text" class="form-control" name="Hire date" [(ngModel)]="Description" placeholder="Description">
+            <br/>
+        </div>
+
+        <div class="form-group row d-flex justify-content-center">
+            <label class="label-product-name">Project code</label>
+            <input type="text" class="form-control" name="Salary" [(ngModel)]="Project_code" placeholder="Project code">
+            <br/>
+        </div>
+
+        <button type="button" class="btn btn-success" (click)="addNewProject()">Add</button>
+    </form>
+</div>

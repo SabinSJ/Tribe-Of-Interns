@@ -1,0 +1,37 @@
+<div class="form-container">
+    <form>
+        <label class="label"><h2>Update Project</h2></label>
+
+        <div class="form-group row d-flex justify-content-center">
+            <label class="label-product-name">Project name</label>
+                <input type="text" class="form-control" name="Project_name" [(ngModel)]="projectToUpdate.Project_name" required  #Project_name="ngModel">
+            <br/>
+        </div>
+
+        <div class="form-group row d-flex justify-content-center">
+            <label class="label-product-name">Start date</label>
+            <input type="text" class="form-control" name="Start_date" [(ngModel)]="projectToUpdate.Start_date" required  #Start_date="ngModel">
+            <br/>
+        </div>
+
+        <div class="form-group row d-flex justify-content-center">
+            <label class="label-product-name">Planned end date</label>
+            <input type="text" class="form-control" name="Planned_end_date" [(ngModel)]="projectToUpdate.Planned_end_date" required  #Planned_end_date="ngModel">
+            <br/>
+        </div>
+
+        <div class="form-group row d-flex justify-content-center">
+            <label class="label-product-name">Description</label>
+            <input type="text" class="form-control" name="Description" [(ngModel)]="projectToUpdate.Description" required  #Description="ngModel">
+            <br/>
+        </div>
+
+        <div class="form-group row d-flex justify-content-center">
+            <label class="label-product-name">Project code</label>
+            <input type="text" class="form-control" name="Project_code" [(ngModel)]="projectToUpdate.Project_code" required  #Project_code="ngModel">
+            <br/>
+        </div>
+
+        <button type="button" class="btn btn-success" (click)="updateEmployee()">Update</button>
+    </form>
+</div>

@@ -1,8 +1,8 @@
-#addEmployee{
-    margin: 2.5% 2% 2% 5%;
+#addProject{
+    margin: 2.5% 0 2% 5%;
 }
 
-#updateEmployee{
+#updateProject{
     margin-right: 10%;
 }
 
@@ -14,8 +14,4 @@
 .btn-warning{
     width: 70%;
     margin-bottom: 10%;
-}
-
-.btn-danger{
-    width: 70%;
 }

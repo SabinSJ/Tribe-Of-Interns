@@ -10,6 +10,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EmployeesComponent } from './Components/pages/employees/employees.component';
 import { AddEmployeeFormComponent } from './Components/add-employee-form/add-employee-form.component';
 import { UpdateEmployeeFormComponent } from './Components/update-employee-form/update-employee-form.component';
+import { ProjectsComponent } from './Components/pages/projects/projects.component';
+import { AddProjectFormComponent } from './Components/add-project-form/add-project-form.component';
+import { UpdateProjectFormComponent } from './Components/update-project-form/update-project-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { UpdateEmployeeFormComponent } from './Components/update-employee-form/u
     NavbarComponent,
     EmployeesComponent,
     AddEmployeeFormComponent,
-    UpdateEmployeeFormComponent
+    UpdateEmployeeFormComponent,
+    ProjectsComponent,
+    AddProjectFormComponent,
+    UpdateProjectFormComponent
   ],
   imports: [
     BrowserModule,
