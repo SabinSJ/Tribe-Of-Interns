@@ -1,0 +1,39 @@
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Component({
+  selector: 'app-add-employee-form',
+  templateUrl: './add-employee-form.component.html',
+  styleUrls: ['./add-employee-form.component.css']
+})
+export class AddEmployeeFormComponent implements OnInit {
+
+  constructor(private http: HttpClient) { }
+
+  displayedColumns = ['Name','Address','Email','Hire_date','Salary','Job_Title','project_id'];
+
+  Name: string = '';
+  Address: string = '';
+  Email: string = '';
+  Hire_date: any
+  Salary: number = 0;
+  Job_Title: string = '';
+  project_id: any
+
+  ngOnInit(): void {
+  }
+
+  addNewEmployee()
+  {
+    this.http.post<any>('http://localhost:3000/employee/save', {
+      Name: this.Name,
+      Address: this.Address,
+      Email: this.Email,
+      Hire_date: this.Hire_date,
+      Salary: this.Salary,
+      Job_Title: this.Job_Title,
+      project_id: this.project_id
+    }).subscribe(data => {console.log(data)})
+  }
+
+}
