@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-update-employee-form',
@@ -8,7 +9,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UpdateEmployeeFormComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public activeModal: NgbActiveModal) { }
+
+  isSuccesful = false
 
   employeeToUpdate = {
     _id:"",
@@ -34,9 +37,16 @@ export class UpdateEmployeeFormComponent implements OnInit {
       Job_Title: this.employeeToUpdate.Job_Title,
       project_id: this.employeeToUpdate.project_id
     }).subscribe(data => {
-      console.log(data)
-      alert("Employee updated")
-      window.location.reload()
+      this.isSuccesful = true
+      setTimeout(function(){
+        window.location.reload()
+      },1000);
+    }, err => {
+      this.isSuccesful = false
     })
+  }
+
+  close() {
+    this.activeModal.dismiss('Cross click')
   }
 }

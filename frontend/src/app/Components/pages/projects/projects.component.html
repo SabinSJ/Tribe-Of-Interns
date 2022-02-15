@@ -1,7 +1,7 @@
 <button type="button" class="btn btn-primary" id="addProject" (click)="addProject()">Add Project</button>
 
-<table class="table table-hover table-dark">
-    <thead>
+<table class="table table-bordered">
+    <thead class="thead-dark">
       <tr>
         <th scope="col" *ngFor = "let column of displayedColumns">
             {{column}}
@@ -20,7 +20,7 @@
 
         <td scope="row">
           <button type="button" class="btn btn-warning" (click)="updateProject(row)" id="updateEmployee">Edit</button>
-            <button type="button" class="btn btn-danger" (click)="deleteProject(row._id)">Delete</button>
+            <button type="button" class="btn btn-danger" (click)="deleteProject(row)">Delete</button>
         </td>
       </tr>
     </tbody>

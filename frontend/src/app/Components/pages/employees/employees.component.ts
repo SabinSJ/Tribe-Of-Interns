@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AddEmployeeFormComponent } from '../../add-employee-form/add-employee-form.component';
 import { UpdateEmployeeFormComponent } from '../../update-employee-form/update-employee-form.component';
+import { DeleteEmployeeFormComponent } from '../../delete-employee-form/delete-employee-form.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -34,12 +35,9 @@ export class EmployeesComponent implements OnInit {
     modalRef.componentInstance.employeeToUpdate = employee
   }
 
-  deleteEmployee(id : any){
-    console.log('remove employee from id: ' + id)
-    this.http.delete<any>(`http://localhost:3000/employee/delete/${id}`).subscribe( () => {
-      alert("Employee deleted")
-      window.location.reload()
-    })
+  deleteEmployee(employee : any){
+    const modalRef = this.modalService.open(DeleteEmployeeFormComponent)
+    modalRef.componentInstance.employeeToDelete = employee
   }
 
 }

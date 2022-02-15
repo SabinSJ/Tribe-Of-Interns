@@ -13,6 +13,8 @@ import { UpdateEmployeeFormComponent } from './Components/update-employee-form/u
 import { ProjectsComponent } from './Components/pages/projects/projects.component';
 import { AddProjectFormComponent } from './Components/add-project-form/add-project-form.component';
 import { UpdateProjectFormComponent } from './Components/update-project-form/update-project-form.component';
+import { DeleteEmployeeFormComponent } from './Components/delete-employee-form/delete-employee-form.component';
+import { DeleteProjectFormComponent } from './Components/delete-project-form/delete-project-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { UpdateProjectFormComponent } from './Components/update-project-form/upd
     UpdateEmployeeFormComponent,
     ProjectsComponent,
     AddProjectFormComponent,
-    UpdateProjectFormComponent
+    UpdateProjectFormComponent,
+    DeleteEmployeeFormComponent,
+    DeleteProjectFormComponent
   ],
   imports: [
     BrowserModule,

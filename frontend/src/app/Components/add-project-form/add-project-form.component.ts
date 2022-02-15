@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-add-project-form',
@@ -8,7 +9,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddProjectFormComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public activeModal: NgbActiveModal) { }
+
+  isSuccesful = false
 
   displayedColumns = ['_id','Project_name','Start_date','Planned_end_date','Description','Project_code'];
 
@@ -29,7 +32,18 @@ export class AddProjectFormComponent implements OnInit {
       Planned_end_date: this.Planned_end_date,
       Description: this.Description,
       Project_code: this.Project_code
-    }).subscribe(data => {console.log(data)})
+    }).subscribe(data => {
+      this.isSuccesful = true
+      setTimeout(function(){
+        window.location.reload()
+      },1000);
+    }, err => {
+      this.isSuccesful = false
+    })
+  }
+
+  close() {
+    this.activeModal.dismiss('Cross click')
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-update-project-form',
@@ -8,7 +9,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UpdateProjectFormComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public activeModal: NgbActiveModal) { }
+
+  isSuccesful = false
 
   projectToUpdate = {
     _id:"",
@@ -22,7 +25,7 @@ export class UpdateProjectFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateEmployee()
+  updateProject()
   {
     this.http.put<any>(`http://localhost:3000/project/change/${this.projectToUpdate._id}`, {
       Project_name: this.projectToUpdate.Project_name,
@@ -31,10 +34,17 @@ export class UpdateProjectFormComponent implements OnInit {
       Description: this.projectToUpdate.Description,
       Project_code: this.projectToUpdate.Project_code
     }).subscribe(data => {
-      console.log(data)
-      alert("Project updated")
-      window.location.reload()
+      this.isSuccesful = true
+      setTimeout(function(){
+        window.location.reload()
+      },1000);
+    }, err => {
+      this.isSuccesful = false
     })
+  }
+
+  close() {
+    this.activeModal.dismiss('Cross click')
   }
 
 }

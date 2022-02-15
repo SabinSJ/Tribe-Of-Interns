@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AddProjectFormComponent } from '../../add-project-form/add-project-form.component';
 import { UpdateProjectFormComponent } from '../../update-project-form/update-project-form.component';
+import { DeleteProjectFormComponent } from '../../delete-project-form/delete-project-form.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -34,12 +35,9 @@ export class ProjectsComponent implements OnInit {
     modalRef.componentInstance.projectToUpdate = project
   }
 
-  deleteProject(id : any){
-    console.log('remove employee from id: ' + id)
-    this.http.delete<any>(`http://localhost:3000/project/delete/${id}`).subscribe( () => {
-      alert("Project deleted")
-      window.location.reload()
-    })
+  deleteProject(project : any){
+    const modalRef = this.modalService.open(DeleteProjectFormComponent)
+    modalRef.componentInstance.projectToDelete = project
   }
 
 }

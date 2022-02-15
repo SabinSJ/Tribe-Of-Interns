@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-add-employee-form',
@@ -8,9 +9,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddEmployeeFormComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public activeModal: NgbActiveModal) { }
 
   displayedColumns = ['Name','Address','Email','Hire_date','Salary','Job_Title','project_id'];
+
+  isSuccesful = false
 
   Name: string = '';
   Address: string = '';
@@ -33,7 +36,18 @@ export class AddEmployeeFormComponent implements OnInit {
       Salary: this.Salary,
       Job_Title: this.Job_Title,
       project_id: this.project_id
-    }).subscribe(data => {console.log(data)})
+    }).subscribe(data => {
+      this.isSuccesful = true
+      setTimeout(function(){
+        window.location.reload()
+      },1000);
+    }, err => {
+      this.isSuccesful = false
+    })
+  }
+
+  close() {
+    this.activeModal.dismiss('Cross click')
   }
 
 }
