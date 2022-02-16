@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const app = express()
 const EmployeeRoute = require('./route/EmployeeRoute')
 const ProjectRoute = require('./route/ProjectRoute')
+const UserRoute = require('./route/UserRoute')
 const cors = require('cors')
 
 var bodyParser = require('body-parser');
@@ -37,6 +38,7 @@ app.use(cors())
 
 app.use('/employee', EmployeeRoute)
 app.use('/project', ProjectRoute)
+app.use('/users', UserRoute)
 
 app.get('/', function(req, res){
     res.send('Hello World');
