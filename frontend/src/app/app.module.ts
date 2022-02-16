@@ -15,6 +15,8 @@ import { AddProjectFormComponent } from './Components/add-project-form/add-proje
 import { UpdateProjectFormComponent } from './Components/update-project-form/update-project-form.component';
 import { DeleteEmployeeFormComponent } from './Components/delete-employee-form/delete-employee-form.component';
 import { DeleteProjectFormComponent } from './Components/delete-project-form/delete-project-form.component';
+import { LoginComponent } from './Components/login/login.component';
+import { SignupComponent } from './Components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { DeleteProjectFormComponent } from './Components/delete-project-form/del
     AddProjectFormComponent,
     UpdateProjectFormComponent,
     DeleteEmployeeFormComponent,
-    DeleteProjectFormComponent
+    DeleteProjectFormComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
